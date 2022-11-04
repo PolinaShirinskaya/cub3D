@@ -6,7 +6,7 @@
 /*   By: adian <adian@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 16:50:42 by adian             #+#    #+#             */
-/*   Updated: 2022/11/04 12:27:13 by adian            ###   ########.fr       */
+/*   Updated: 2022/11/04 13:07:56 by adian            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@
 # include <fcntl.h>
 # include <stdlib.h>
 # include <math.h>
+
+# include <stdio.h>
 
 typedef struct s_file
 {

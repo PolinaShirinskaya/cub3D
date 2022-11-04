@@ -6,7 +6,7 @@
 /*   By: adian <adian@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 15:57:35 by adian             #+#    #+#             */
-/*   Updated: 2022/10/28 13:13:44 by adian            ###   ########.fr       */
+/*   Updated: 2022/11/04 13:24:21 by adian            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ int	ft_gnl_sh(char **line, int memory, int fd, int *rv)
 	}
 	rb = read(fd, &ch, 1);
 	if (rb == -1)
-		{
-			free(buffer);
-			*rv = -1;
-			return (-1);
-		}
+	{
+		free(buffer);
+		*rv = -1;
+		return (-1);
+	}
 	while (rb && ch && ch != '\n')
 	{
 		if (ch && ch != '\n')

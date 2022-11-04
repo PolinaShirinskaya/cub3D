@@ -6,7 +6,7 @@
 /*   By: adian <adian@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 13:00:52 by adian             #+#    #+#             */
-/*   Updated: 2022/11/04 11:12:20 by adian            ###   ########.fr       */
+/*   Updated: 2022/11/04 13:26:50 by adian            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ static	void	ft_read_file(t_main *data)
 	rv = -3;
 	data->file.res = ft_gnl_sh(&data->file.line, 1000, data->file.fd, &rv);
 	ft_check_gnl_res(data);
+	printf("%s\n",data->file.line);
 	while (data->file.line)
 	{
 		if (data->file.line[ft_strlen(data->file.line) - 1] == '\n')
@@ -34,6 +35,8 @@ static	void	ft_read_file(t_main *data)
 		ft_add_token(&data->tokens, ft_new_token(data));
 		data->file.res = ft_gnl_sh(&data->file.line, 1000, data->file.fd, &rv);
 		ft_check_gnl_res(data);
+		//printf("------CIKL---\n");
+		printf("%s\n",data->file.line);
 	}
 	if (!data->tokens)
 		ft_end_program(data, ERROR_EMPTY_FILE, 1);
@@ -75,6 +78,7 @@ static void	ft_map_is_continuous(t_main *data)
 
 void	ft_parse_file_to_tokens(t_main *data)
 {
+	printf("------FILE to TOKENS---\n");
 	ft_read_file(data);
 	ft_prepare_tokens(data);
 	if (ft_count_type_tokens(&data->tokens, TOKEN_TEXTURE) != FULL_TEXTURE)
