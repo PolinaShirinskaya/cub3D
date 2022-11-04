@@ -29,7 +29,7 @@ SRCS_LIST		=	main.c \
 					cub3d.c \
 					end_program.c \
 					init.c \
-					parse_file.c \
+					parse_file_to_tokens.c \
 					tokens_utils.c \
 					tokens.c
 
@@ -65,7 +65,7 @@ $(LIBFT) : ./libft/Makefile ./libft/libft.h ./libft/*.c
 	@make -C ./libft
 	@echo "$(CYAN)'libft' was compiled$(NORMAL)"
 
-	clean :
+clean :
 	@make clean -C ./libft
 	@rm -rf $(OBJS_DIR)
 	@echo "$(YELLOW)Removing objects files$(WHITE) --> *.o --> $(GREEN)[Done]$(NORMAL)"

@@ -6,7 +6,7 @@
 /*   By: adian <adian@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 16:53:01 by adian             #+#    #+#             */
-/*   Updated: 2022/10/28 12:57:13 by adian            ###   ########.fr       */
+/*   Updated: 2022/11/04 11:13:19 by adian            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,20 +24,20 @@ void	ft_init_mlx(t_main *data)
 {
 	data->mlx.mlx = mlx_init();
 	if (!data->mlx.mlx)
-		ft_end_programm(data, ERROR_MLX_INIT, 1);
+		ft_end_program(data, ERROR_MLX_INIT, 1);
 	data->mlx.mlx_win = mlx_new_window(data->mlx.mlx, WINDOW_WIDHT, \
 	WINDOW_HEIGHT, WINDOW_TITLE);
 	if (!data->mlx.mlx_win)
-		ft_end_programm(data, ERROR_MLX_NEW_WINDOW, 1);
+		ft_end_program(data, ERROR_MLX_NEW_WINDOW, 1);
 	data->mlx.img.img = mlx_new_image(data->mlx.mlx, WINDOW_WIDHT, \
 	WINDOW_HEIGHT);
 	if (!data->mlx.img.img)
-		ft_end_programm(data, ERROR_MLX_NEW_IMAGE, 1);
+		ft_end_program(data, ERROR_MLX_NEW_IMAGE, 1);
 	data->mlx.img.addr = mlx_get_data_addr(data->mlx.img.img, \
 	&data->mlx.img.bits_per_pixel, &data->mlx.img.line_length, \
 	&data->mlx.img.endian);
 	if (!data->mlx.img.addr)
-		ft_end_programm(data, ERROR_MLX_GET_DATA_ADDR, 1);
+		ft_end_program(data, ERROR_MLX_GET_DATA_ADDR, 1);
 	mlx_put_image_to_window(data->mlx.mlx, data->mlx.mlx_win, \
 	data->mlx.img.img, 0, 0);
 	mlx_loop(data->mlx.mlx);

@@ -6,12 +6,12 @@
 /*   By: adian <adian@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 16:50:42 by adian             #+#    #+#             */
-/*   Updated: 2022/11/02 18:46:04 by adian            ###   ########.fr       */
+/*   Updated: 2022/11/04 12:27:13 by adian            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
-# define CUBE3D_H
+# define CUB3D_H
 
 # ifdef LINUX
 #  include "../mlx_linux/mlx.h"
@@ -72,10 +72,11 @@ typedef struct s_mlx
 
 typedef struct s_main
 {
-	t_file	file;
-	t_mlx	mlx;
-	t_map	map;
-	t_token	*tokens;
+	t_file			file;
+	t_mlx			mlx;
+	t_map			map;
+	t_token			*tokens;
+	unsigned int	textures_line;
 }			t_main;
 
 /*start of cub3d process*/
@@ -86,20 +87,22 @@ void	ft_init_data(t_main *data, char *filename);
 void	ft_init_mlx(t_main *data);
 void	ft_define_default_data(t_main *data);
 
-/*functions(utils) for tokens*/
+/*parsing functions*/
 void	ft_parse_file_to_tokens(t_main *data);
+void	ft_parse_textures(t_main *data);
+
+/*functions(utils) for tokens*/
 t_token	*ft_new_token(t_main *data);
 void	ft_add_token(t_token **tokens, t_token *new);
 void	ft_prepare_tokens(t_main *data);
 int		ft_count_type_tokens(t_token **tokens, int type);
 void	ft_free_tokens(t_main *data);
-t_token	*find_token(t_token **tokens, int type);
-
+t_token	*ft_find_token(t_token **tokens, int type);
 
 //char	**ft_parser(t_main *data);
 //void	ft_parser(t_main *data);
 
 //char	*ft_get_next_line(int fd);
-void	ft_end_programm(t_main *data, char *error_mess, int error_num);
+void	ft_end_program(t_main *data, char *error_mess, int error_num);
 
 #endif

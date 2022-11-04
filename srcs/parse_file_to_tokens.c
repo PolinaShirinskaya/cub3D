@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_file.c                                       :+:      :+:    :+:   */
+/*   parse_file_to_tokens.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adian <adian@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 13:00:52 by adian             #+#    #+#             */
-/*   Updated: 2022/11/02 18:58:11 by adian            ###   ########.fr       */
+/*   Updated: 2022/11/04 11:12:20 by adian            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-static void	ft_check_gnl_res(t_main *data, int res)
+static void	ft_check_gnl_res(t_main *data)
 {
 	if (data->file.res == -2)
-		ft_end_programm(data, ERROR_MALLOC_GNL, 1);
+		ft_end_program(data, ERROR_MALLOC_GNL, 1);
 	else if (data->file.res == -1)
-		ft_end_programm(data, ERROR_GNL, 1);
+		ft_end_program(data, ERROR_GNL, 1);
 }
 
 static	void	ft_read_file(t_main *data)
@@ -26,17 +26,17 @@ static	void	ft_read_file(t_main *data)
 
 	rv = -3;
 	data->file.res = ft_gnl_sh(&data->file.line, 1000, data->file.fd, &rv);
-	ft_check_gnl_res(data, data->file.res);
+	ft_check_gnl_res(data);
 	while (data->file.line)
 	{
 		if (data->file.line[ft_strlen(data->file.line) - 1] == '\n')
 			data->file.line[ft_strlen(data->file.line) - 1] = '\0';
-		add_token(&data->tokens, new_token(data));
+		ft_add_token(&data->tokens, ft_new_token(data));
 		data->file.res = ft_gnl_sh(&data->file.line, 1000, data->file.fd, &rv);
-		ft_check_gnl_res(data, data->file.res);
+		ft_check_gnl_res(data);
 	}
 	if (!data->tokens)
-		ft_end_programm(data, ERROR_EMPTY_FILE, 1);
+		ft_end_program(data, ERROR_EMPTY_FILE, 1);
 }
 
 static void	ft_skip_texture(t_main *data)
@@ -51,7 +51,7 @@ static void	ft_skip_texture(t_main *data)
 		if (tmp->type == TOKEN_TEXTURE)
 			count_texture++;
 		else if (tmp->type == TOKEN_MAP && count_texture != FULL_TEXTURE)
-			end_program(data, ERROR_TEXTURE_AFTER_MAP, 1);
+			ft_end_program(data, ERROR_TEXTURE_AFTER_MAP, 1);
 		else if (tmp->type == TOKEN_MAP && count_texture == FULL_TEXTURE)
 			return ;
 		tmp = tmp->next;

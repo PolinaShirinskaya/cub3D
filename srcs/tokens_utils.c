@@ -6,7 +6,7 @@
 /*   By: adian <adian@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 16:07:34 by adian             #+#    #+#             */
-/*   Updated: 2022/11/02 18:45:24 by adian            ###   ########.fr       */
+/*   Updated: 2022/11/04 11:14:20 by adian            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_token	*ft_new_token(t_main *data)
 
 	token = (t_token *)malloc(sizeof(t_token));
 	if (!token)
-		end_program(data, ERROR_MALLOC_TOKEN, 1);
+		ft_end_program(data, ERROR_MALLOC_TOKEN, 1);
 	token->line1 = ft_strdup(data->file.line);
 	if (data->file.line)
 	{
@@ -83,7 +83,7 @@ void	ft_free_tokens(t_main *data)
 	data->tokens = NULL;
 }
 
-t_token	*find_token(t_token **tokens, int type)
+t_token	*ft_find_token(t_token **tokens, int type)
 {
 	t_token	*tmp;
 

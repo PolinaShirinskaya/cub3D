@@ -6,7 +6,7 @@
 /*   By: adian <adian@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 18:00:15 by adian             #+#    #+#             */
-/*   Updated: 2022/11/02 18:29:05 by adian            ###   ########.fr       */
+/*   Updated: 2022/11/04 11:14:58 by adian            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,14 @@ void	ft_prepare_tokens(t_main *data)
 	token = data->tokens;
 	while (token)
 	{
-		if (define_separate_token(token->line1))
+		if (ft_define_separate_token(token->line1))
 			token->type = TOKEN_SEPARATORS;
 		else
 		{
 			token->line2 = ft_strtrim(token->line1, SEP);
 			if (!token->line2)
-				end_program(data, ERROR_FT_STRTRIM, 1);
-			token->type = define_type_token(token);
+				ft_end_program(data, ERROR_FT_STRTRIM, 1);
+			token->type = ft_define_type_token(token);
 		}
 		token = token->next;
 	}
