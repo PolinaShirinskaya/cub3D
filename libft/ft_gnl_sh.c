@@ -6,7 +6,7 @@
 /*   By: adian <adian@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 15:57:35 by adian             #+#    #+#             */
-/*   Updated: 2022/11/04 19:00:29 by adian            ###   ########.fr       */
+/*   Updated: 2022/11/05 11:11:58 by adian            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	ft_gnl_sh(char **line, int memory, int fd, int *rv)
 		}
 		i++;
 	}
-	buffer[i] = '\n';
+	//buffer[i] = '\n';
 	buffer[++i] = '\0';
 	*line = ft_strdup(buffer);
 	free(buffer);

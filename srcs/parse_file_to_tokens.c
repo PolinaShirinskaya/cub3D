@@ -6,7 +6,7 @@
 /*   By: adian <adian@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 13:00:52 by adian             #+#    #+#             */
-/*   Updated: 2022/11/04 19:46:40 by adian            ###   ########.fr       */
+/*   Updated: 2022/11/05 11:30:35 by adian            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,21 +24,21 @@ static	void	ft_read_file(t_main *data)
 {
 	int	rv;
 
-	rv = -3;
+	rv = -3;// DELETE THIS SHIT
 	data->file.res = ft_gnl_sh(&data->file.line, 1000, data->file.fd, &rv);
 	ft_check_gnl_res(data);
+	if (data->file.line[ft_strlen(data->file.line) - 1] == '\n')
+		data->file.line[ft_strlen(data->file.line) - 1] = '\0';
 	while (data->file.res)
 	{
-		printf("%s\n",data->file.line);
-		if (data->file.line[ft_strlen(data->file.line) - 1] == '\n')
-			data->file.line[ft_strlen(data->file.line) - 1] = '\0';
 		ft_add_token(&data->tokens, ft_new_token(data));
 		data->file.res = ft_gnl_sh(&data->file.line, 1000, data->file.fd, &rv);
 		ft_check_gnl_res(data);
+		if (data->file.line[ft_strlen(data->file.line) - 1] == '\n')
+				data->file.line[ft_strlen(data->file.line) - 1] = '\0';
+		printf("line readfile: %s res:%d\n",data->file.line, data->file.res);
 	}
-	data->file.res = ft_gnl_sh(&data->file.line, 1000, data->file.fd, &rv);
-	ft_check_gnl_res(data);
-	printf("%s",data->file.line);
+		ft_add_token(&data->tokens, ft_new_token(data));
 	if (!data->tokens)
 		ft_end_program(data, ERROR_EMPTY_FILE, 1);
 }
@@ -51,24 +51,18 @@ static void	ft_skip_texture(t_main *data)
 	tmp = data->tokens;
 	printf("%s\n", tmp->line2);
 	count_texture = 0;
-	while (tmp->type == TOKEN_TEXTURE || tmp->type == TOKEN_MAP \
-			|| tmp->type == TOKEN_SEPARATORS)
+	while (1)
 	{
 		if (tmp->type == TOKEN_TEXTURE)
 			count_texture++;
-		if (tmp->type == TOKEN_SEPARATORS)
-		{
-			tmp = tmp->next;
-			printf("%s\n", tmp->line2);
-		}
 		else if (tmp->type == TOKEN_MAP && count_texture != FULL_TEXTURE)
 			ft_end_program(data, ERROR_TEXTURE_AFTER_MAP, 1);
 		else if (tmp->type == TOKEN_MAP && count_texture == FULL_TEXTURE)
 			return ;
 		tmp = tmp->next;
-		printf("%s\n", tmp->line2);
+		printf("%s: ", tmp->line2);
+		printf("%d\n", tmp->type);
 	}
-	
 }
 
 static void	ft_map_is_continuous(t_main *data)
@@ -88,7 +82,7 @@ static void	ft_map_is_continuous(t_main *data)
 
 void	ft_parse_file_to_tokens(t_main *data)
 {
-	printf("------FILE to TOKENS---\n");
+	printf("------READ fILE---\n");
 	ft_read_file(data);
 	printf("------PREPARE TOKENS---\n");
 	ft_prepare_tokens(data);

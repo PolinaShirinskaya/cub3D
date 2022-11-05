@@ -6,7 +6,7 @@
 /*   By: adian <adian@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 16:50:56 by adian             #+#    #+#             */
-/*   Updated: 2022/11/04 19:46:00 by adian            ###   ########.fr       */
+/*   Updated: 2022/11/05 20:14:02 by adian            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,7 @@
 # define TEXTURE_SO 1
 # define TEXTURE_WE 2
 # define TEXTURE_EA 3
+
+# define WALL_TEXTURE 4
 
 #endif

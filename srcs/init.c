@@ -6,7 +6,7 @@
 /*   By: adian <adian@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 16:53:01 by adian             #+#    #+#             */
-/*   Updated: 2022/11/04 11:13:19 by adian            ###   ########.fr       */
+/*   Updated: 2022/11/05 20:32:22 by adian            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,11 @@ void	ft_init_mlx(t_main *data)
 
 void	ft_init_data(t_main *data, char *filename)
 {
+	int	i;
+	
 	data->file.filename = filename;
 	data->file.fd = 0;
+	data->textures_lines = 0;
 	data->mlx.mlx = NULL;
 	data->mlx.mlx_win = NULL;
 	data->mlx.img.img = NULL;
@@ -55,6 +58,12 @@ void	ft_init_data(t_main *data, char *filename)
 	data->mlx.img.line_length = 0;
 	data->mlx.img.endian = 0;
 	data->tokens = NULL;
+	i = -1;
+	while (++i < WALL_TEXTURE)
+	{
+		data->textures[i].img = NULL;
+		data->textures[i].addr = NULL;
+	}
 	data->map.rf = NULL;
 	data->map.map = NULL;
 }

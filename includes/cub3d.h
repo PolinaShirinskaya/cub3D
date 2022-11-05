@@ -6,7 +6,7 @@
 /*   By: adian <adian@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 16:50:42 by adian             #+#    #+#             */
-/*   Updated: 2022/11/04 13:07:56 by adian            ###   ########.fr       */
+/*   Updated: 2022/11/05 20:19:28 by adian            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,17 @@ typedef struct s_token
 	struct s_token	*next;
 }					t_token;
 
+typedef struct	s_texture
+{
+	void	*img;
+	int		*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+	int		widht;
+	int		height;
+}			t_texture;
+
 typedef struct s_map
 {
 	char	**rf;
@@ -78,7 +89,8 @@ typedef struct s_main
 	t_mlx			mlx;
 	t_map			map;
 	t_token			*tokens;
-	unsigned int	textures_line;
+	unsigned int	textures_lines;
+	t_texture		textures[WALL_TEXTURE];
 }			t_main;
 
 /*start of cub3d process*/
@@ -92,6 +104,8 @@ void	ft_define_default_data(t_main *data);
 /*parsing functions*/
 void	ft_parse_file_to_tokens(t_main *data);
 void	ft_parse_textures(t_main *data);
+void	ft_parse_textures_wall(t_main *data, char *line);
+
 
 /*functions(utils) for tokens*/
 t_token	*ft_new_token(t_main *data);

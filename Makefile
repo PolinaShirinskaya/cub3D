@@ -31,7 +31,9 @@ SRCS_LIST		=	main.c \
 					init.c \
 					parse_file_to_tokens.c \
 					tokens_utils.c \
-					tokens.c
+					tokens.c \
+					parse_textures.c \
+					parse_textures_wall.c 
 
 SRCS			=	$(addprefix $(SRCS_DIR)/,$(SRCS_LIST))
 
