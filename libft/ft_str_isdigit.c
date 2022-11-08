@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.c                                            :+:      :+:    :+:   */
+/*   ft_str_isdigit.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adian <adian@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/28 12:58:33 by adian             #+#    #+#             */
-/*   Updated: 2022/11/08 16:49:03 by adian            ###   ########.fr       */
+/*   Created: 2022/11/08 12:39:51 by adian             #+#    #+#             */
+/*   Updated: 2022/11/08 12:40:05 by adian            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "libft.h"
 
-void	ft_cub3d(t_main *data)
+int	ft_str_isdigit(char *str)
 {
-	printf("------CUB3D---\n");
-	ft_define_default_data(data);
-	//ft_init_mlx(data);
-	ft_parse_file_to_tokens(data);
-	//printf("-----------PARSE TEXTURES--------\n");
-	//ft_parse_textures(data);
-	printf("------PARSE MAP-------\n");
-	ft_parse_map(data);
+	int	i;
+
+	i = 0;
+	while (str && str[i])
+	{
+		if (!ft_isdigit(str[i]))
+			return (0);
+		i++;
+	}
+	return (1);
 }

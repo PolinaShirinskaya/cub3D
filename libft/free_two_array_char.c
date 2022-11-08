@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc_two_array_char.c                         :+:      :+:    :+:   */
+/*   free_two_array_char.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adian <adian@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/20 19:54:14 by adian             #+#    #+#             */
-/*   Updated: 2022/10/20 19:54:30 by adian            ###   ########.fr       */
+/*   Created: 2022/11/07 10:52:45 by adian             #+#    #+#             */
+/*   Updated: 2022/11/07 10:53:08 by adian            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	**calloc_two_array_char(int size)
+void	free_two_array_char(char **array)
 {
-	char	**array;
-	int		i;
+	int	i;
 
-	array = (char **)malloc(sizeof(char *) * (size + 1));
-	if (!array)
-		return (NULL);
-	i = -1;
-	while (++i < size + 1)
-		array[i] = NULL;
-	return (array);
+	i = 0;
+	if (array)
+	{
+		while (array && array[i])
+		{
+			free (array[i]);
+			i++;
+		}
+		free (array);
+	}
 }

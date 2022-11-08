@@ -13,8 +13,10 @@ SRCS = 	ft_atoi.c		ft_bzero.c		ft_calloc.c \
 		ft_strtrim.c	ft_substr.c		ft_tolower.c \
 		ft_toupper.c	ft_strcmp.c		ft_gnl_sh.c \
 		ft_lstadd_back.c ft_lstsize.c	ft_lstnew.c\
-		ft_putspl_fd.c	ft_calloc_two_array_char.c \
-		ft_splfree.c	ft_lstclear.c
+		ft_putspl_fd.c	ft_splfree.c	ft_lstclear.c \
+		calloc_two_array_char.c malloc_two_array_char.c \
+		size_two_array_char.c	free_two_array_char.c \
+		ft_str_isdigit.c
 
 RM = rm -f
 

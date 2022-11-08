@@ -6,7 +6,7 @@
 /*   By: adian <adian@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 21:05:14 by adian             #+#    #+#             */
-/*   Updated: 2022/10/27 11:31:23 by adian            ###   ########.fr       */
+/*   Updated: 2022/11/08 12:40:32 by adian            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char const *str, unsigned int start, size_t len);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
+int		ft_str_isdigit(char *str);
 
 typedef struct s_list
 {
@@ -57,16 +58,23 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
-int		ft_gnl_sh(char **line, int memory, int fd, int *rv);
-size_t	ft_putspl_fd(char **split, int fd);
-char	**calloc_two_array_char(int size);
-void	ft_splfree(char **split);
-
 /*work with lists*/
 void	ft_lstadd_back(t_list **lst, t_list *new);
 t_list	*ft_lstnew(void *content);
 int		ft_lstsize(t_list *lst);
 void	ft_lstclear(t_list **lst, void (*del)(void *));
+
+/*work with two arrays*/
+char	**calloc_two_array_char(int size);
+char	**malloc_two_array_char(char **array);
+void	free_two_array_char(char **array);
+int		size_two_array_char(char **array);
+
+int		ft_gnl_sh(char **line, int memory, int fd, int *rv);
+size_t	ft_putspl_fd(char **split, int fd);
+void	ft_splfree(char **split);
+
+
 
 
 #endif

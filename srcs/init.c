@@ -6,7 +6,7 @@
 /*   By: adian <adian@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 16:53:01 by adian             #+#    #+#             */
-/*   Updated: 2022/11/05 20:32:22 by adian            ###   ########.fr       */
+/*   Updated: 2022/11/08 17:08:35 by adian            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,6 @@ void	ft_init_data(t_main *data, char *filename)
 		data->textures[i].img = NULL;
 		data->textures[i].addr = NULL;
 	}
-	data->map.rf = NULL;
 	data->map.map = NULL;
+	data->map.fullmap = NULL;
 }

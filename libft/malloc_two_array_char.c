@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.c                                            :+:      :+:    :+:   */
+/*   malloc_two_array_char.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adian <adian@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/28 12:58:33 by adian             #+#    #+#             */
-/*   Updated: 2022/11/08 16:49:03 by adian            ###   ########.fr       */
+/*   Created: 2022/11/07 10:49:42 by adian             #+#    #+#             */
+/*   Updated: 2022/11/07 10:50:41 by adian            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "libft.h"
 
-void	ft_cub3d(t_main *data)
+char	**malloc_two_array_char(char **array)
 {
-	printf("------CUB3D---\n");
-	ft_define_default_data(data);
-	//ft_init_mlx(data);
-	ft_parse_file_to_tokens(data);
-	//printf("-----------PARSE TEXTURES--------\n");
-	//ft_parse_textures(data);
-	printf("------PARSE MAP-------\n");
-	ft_parse_map(data);
+	char	**res;
+	int		i;
+
+	res = (char **)malloc(sizeof(char *) * \
+	(size_two_array_char(array) + 1));
+	if (!res)
+		return (NULL);
+	i = -1;
+	while (++i < size_two_array_char(array) + 1)
+		res[i] = NULL;
+	return (res);
 }

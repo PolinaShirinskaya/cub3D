@@ -6,7 +6,7 @@
 /*   By: adian <adian@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 16:51:04 by adian             #+#    #+#             */
-/*   Updated: 2022/11/05 20:06:11 by adian            ###   ########.fr       */
+/*   Updated: 2022/11/07 11:00:51 by adian            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@
 # define ERROR_INVALID_TEXTURE "Error: invalid texture\n"
 # define ERROR_SEPARATOR_TEXTURE "Error: no separator after name of texture\n"
 # define ERROR_DUPLICATE_TEXTURE "Error: duplicate texture\n"
+# define ERROR_FORMAT_RGB "Error: invalid format of RGB\n"
 
 #endif

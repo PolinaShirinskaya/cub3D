@@ -6,11 +6,13 @@
 /*   By: adian <adian@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 12:40:03 by adian             #+#    #+#             */
-/*   Updated: 2022/11/05 20:30:13 by adian            ###   ########.fr       */
+/*   Updated: 2022/11/08 12:33:59 by adian            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
+
+/*DEFINE TEXTURE WALL!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 
 void	ft_parse_textures_wall(t_main *data, char *line)
 {
