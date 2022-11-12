@@ -6,7 +6,7 @@
 /*   By: adian <adian@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 10:22:21 by adian             #+#    #+#             */
-/*   Updated: 2022/11/08 12:38:39 by adian            ###   ########.fr       */
+/*   Updated: 2022/11/12 17:58:53 by adian            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ static void	ft_define_rgb(t_main *data, char *line)
 	char	**tmp;
 	int		i;
 
+	printf("Line RGB:%s\n", line);
 	tmp = ft_prepare_rgb(data, line);
 	i = 0;
 	while (tmp && tmp[i])

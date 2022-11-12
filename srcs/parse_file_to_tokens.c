@@ -6,7 +6,7 @@
 /*   By: adian <adian@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 13:00:52 by adian             #+#    #+#             */
-/*   Updated: 2022/11/05 11:30:35 by adian            ###   ########.fr       */
+/*   Updated: 2022/11/12 18:23:21 by adian            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static	void	ft_read_file(t_main *data)
 {
 	int	rv;
 
-	rv = -3;// DELETE THIS SHIT
+	rv = -3;
 	data->file.res = ft_gnl_sh(&data->file.line, 1000, data->file.fd, &rv);
 	ft_check_gnl_res(data);
 	if (data->file.line[ft_strlen(data->file.line) - 1] == '\n')

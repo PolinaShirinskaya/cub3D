@@ -6,7 +6,7 @@
 /*   By: adian <adian@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 12:40:03 by adian             #+#    #+#             */
-/*   Updated: 2022/11/08 12:33:59 by adian            ###   ########.fr       */
+/*   Updated: 2022/11/12 18:13:42 by adian            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,7 @@ void	ft_parse_textures_wall(t_main *data, char *line)
 
 	texture_type = -1;
     if (!ft_strncmp(line, NO, ft_strlen(NO)))
-	{
 		texture_type = TEXTURE_NO;
-		printf("NO: %d\n", texture_type);
-	}
 	else if (!ft_strncmp(line, SO, ft_strlen(SO)))
 		texture_type = TEXTURE_SO;
 	else if (!ft_strncmp(line, WE, ft_strlen(WE)))

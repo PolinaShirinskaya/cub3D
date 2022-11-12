@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_map.c                                        :+:      :+:    :+:   */
+/*   parse_map_1.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adian <adian@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 12:42:21 by adian             #+#    #+#             */
-/*   Updated: 2022/11/08 19:01:40 by adian            ###   ########.fr       */
+/*   Updated: 2022/11/12 17:44:38 by adian            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,70 @@ static void	ft_make_full_map(t_main *data)
 		data->map.fullmap[i][data->map.width] = '\0';
 		ft_memcpy(data->map.fullmap[i], data->map.map[i], \
 		ft_strlen(data->map.map[i]));
-		ft_memset(data->map.fullmap[i] + ft_strlen(data->map.map[i]), 'S', \
+		ft_memset(data->map.fullmap[i] + ft_strlen(data->map.map[i]), ' ', \
 		data->map.width - (int)ft_strlen(data->map.map[i]));
 		printf("%s\n", data->map.fullmap[i]);
 	}
+}
+
+static void ft_define_hero_position(t_main *data, char hero, \
+			int row, int column)
+{
+	printf("------CHECK BORDERS---\n");	
+	data->hero.position = ft_set_point(column + 0.5, row + 0.5);
+	printf("Hero position: %f  %f\n", data->hero.position.x, data->hero.position.y);
+	if (hero == 'E')
+	{
+		data->hero.direction = ft_set_point(1, 0);
+		data->plane = ft_set_point(0, FOV);
+	}
+	else if (hero == 'W')
+	{
+		data->hero.direction = ft_set_point(-1, 0);
+		data->plane = ft_set_point(0, -FOV);
+	}
+	else if (hero == 'S')
+	{
+		data->hero.direction = ft_set_point(0, 1);
+		data->plane = ft_set_point(-FOV, 0);
+	}
+	else if (hero == 'N')
+	{
+		data->hero.direction = ft_set_point(0, -1);
+		data->plane = ft_set_point(FOV, 0);
+	}
+	printf("Hero direction: %f  %f\n", data->hero.direction.x, data->hero.direction.y);
+	data->map.map[row][column] = '0';
+	data->map.fullmap[row][column] = '0';
+}
+
+static void	ft_check_map_characters(t_main *data)
+{
+	int	i;
+	int	j;
+	int	flag;
+
+	i = -1;
+	flag = 0;
+	while (++i < data->map.height)
+	{
+		j = -1;
+		while (data->map.map[i][++j])
+		{
+			if (!ft_strchr(ALL_CHARACTERS, data->map.map[i][j]))
+				ft_end_program(data, ERROR_INVALIDE_CHARS_MAP, 1);
+			if (ft_strchr(HERO_CHARACTERS, data->map.map[i][j]))
+			{
+				if (flag)
+					ft_end_program(data, ERROR_MORE_HEROES, 1);
+				flag =1;
+				ft_define_hero_position(data, data->map.map[i][j], i, j);
+			}
+		}			
+	}
+	if (!flag)
+		ft_end_program(data, ERROR_NO_HERO, 1);
+	printf("okay\n");
 }
 
 void	ft_parse_map(t_main *data)
@@ -78,4 +138,8 @@ void	ft_parse_map(t_main *data)
 	ft_make_map(data);
 	printf("------FULL MAP---\n");
 	ft_make_full_map(data);
+	printf("------CHECK CHARECTERS---\n");	
+	ft_check_map_characters(data);
+	printf("------CHECK BORDERS---\n");	
+	ft_check_map_border(data);
 }

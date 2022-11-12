@@ -6,7 +6,7 @@
 /*   By: adian <adian@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 10:51:26 by adian             #+#    #+#             */
-/*   Updated: 2022/11/07 10:26:04 by adian            ###   ########.fr       */
+/*   Updated: 2022/11/12 18:20:12 by adian            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,19 @@
 void	ft_parse_textures(t_main *data)
 {
 	t_token	*tmp;
-
+	int	fl_no;
+	int	fl_so;
+	int	fl_ea;
+	int	fl_we;
+	int	fl_c;
+	int	fl_f;
+	
+	fl_no = 0;
+	fl_so = 0;
+	fl_ea = 0;
+	fl_we = 0;
+	fl_c = 0;
+	fl_f = 0;
 	tmp = data->tokens;
 	printf("textures_lines: %d\n", data->textures_lines);
 	while (tmp && data->textures_lines != FULL_TEXTURE)

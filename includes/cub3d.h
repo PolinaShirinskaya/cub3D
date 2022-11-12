@@ -6,7 +6,7 @@
 /*   By: adian <adian@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 16:50:42 by adian             #+#    #+#             */
-/*   Updated: 2022/11/08 16:54:41 by adian            ###   ########.fr       */
+/*   Updated: 2022/11/12 16:10:39 by adian            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,18 @@ typedef struct s_map
 	int		y;
 }			t_map;
 
+typedef struct s_point
+{
+	double	x;
+	double	y;
+}			t_point;
+
+typedef struct s_hero
+{
+	t_point	position;
+	t_point	direction;
+}			t_hero;
+
 typedef struct s_img
 {
 	void	*img;
@@ -101,6 +113,8 @@ typedef struct s_main
 	t_rgb			colors;
 	unsigned int	floor_color;
 	unsigned int	ceil_color;
+	t_hero			hero;
+	t_point			plane;
 }			t_main;
 
 /*start of cub3d process*/
@@ -116,7 +130,7 @@ void	ft_parse_file_to_tokens(t_main *data);
 void	ft_parse_textures(t_main *data);
 void	ft_parse_textures_wall(t_main *data, char *line);
 void	ft_parse_textures_floor_ceil(t_main *data, char *line);
-
+void	ft_parse_map(t_main *data);
 
 /*functions(utils) for tokens*/
 t_token	*ft_new_token(t_main *data);
@@ -126,13 +140,10 @@ int		ft_count_type_tokens(t_token **tokens, int type);
 void	ft_free_tokens(t_main *data);
 t_token	*ft_find_token(t_token **tokens, int type);
 
-void	ft_parse_map(t_main *data);
-
-
-//char	**ft_parser(t_main *data);
-//void	ft_parser(t_main *data);
-
-//char	*ft_get_next_line(int fd);
+/*utils*/
+void	ft_check_map_border(t_main *data);
+void	ft_addition_map(t_main *data);
+t_point	ft_set_point(double x, double y);
 void	ft_end_program(t_main *data, char *error_mess, int error_num);
 
 #endif

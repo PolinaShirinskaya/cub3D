@@ -6,7 +6,7 @@
 /*   By: adian <adian@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 16:51:04 by adian             #+#    #+#             */
-/*   Updated: 2022/11/07 11:00:51 by adian            ###   ########.fr       */
+/*   Updated: 2022/11/12 16:46:23 by adian            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,10 @@
 # define ERROR_SEPARATOR_TEXTURE "Error: no separator after name of texture\n"
 # define ERROR_DUPLICATE_TEXTURE "Error: duplicate texture\n"
 # define ERROR_FORMAT_RGB "Error: invalid format of RGB\n"
+# define ERROR_INVALIDE_CHARS_MAP "Error: invalid char in map\n"
+# define ERROR_MORE_HEROES "Error: more heroes in map\n"
+# define ERROR_NO_HERO "Error: no hero in map\n"
+# define ERROR_MAP_BORDER "Error: map border is not valid\n"
+
 
 #endif
