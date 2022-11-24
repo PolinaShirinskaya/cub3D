@@ -6,7 +6,7 @@
 /*   By: adian <adian@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 16:50:56 by adian             #+#    #+#             */
-/*   Updated: 2022/11/12 17:58:07 by adian            ###   ########.fr       */
+/*   Updated: 2022/11/13 12:15:14 by adian            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@
 # define SO "SO"
 # define WE "WE"
 # define EA "EA"
+# define F "F"
+# define C "C"
 # define TEXTURE_NO 0
 # define TEXTURE_SO 1
 # define TEXTURE_WE 2

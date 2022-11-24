@@ -6,7 +6,7 @@
 /*   By: adian <adian@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 16:50:42 by adian             #+#    #+#             */
-/*   Updated: 2022/11/12 16:10:39 by adian            ###   ########.fr       */
+/*   Updated: 2022/11/13 12:06:16 by adian            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,16 @@ typedef struct	s_texture
 	int		widht;
 	int		height;
 }			t_texture;
+
+typedef struct	s_flags
+{
+	int	fl_no;
+	int	fl_so;
+	int	fl_we;
+	int	fl_ea;
+	int	fl_f;
+	int	fl_c;
+}		t_flags;
 
 typedef struct s_rgb
 {
@@ -109,6 +119,7 @@ typedef struct s_main
 	t_map			map;
 	t_token			*tokens;
 	unsigned int	textures_lines;
+	t_flags			textures_flags;
 	t_texture		textures[WALL_TEXTURE];
 	t_rgb			colors;
 	unsigned int	floor_color;

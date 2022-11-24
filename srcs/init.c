@@ -6,7 +6,7 @@
 /*   By: adian <adian@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 16:53:01 by adian             #+#    #+#             */
-/*   Updated: 2022/11/08 17:08:35 by adian            ###   ########.fr       */
+/*   Updated: 2022/11/13 12:07:13 by adian            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,13 @@ void	ft_define_default_data(t_main *data)
 	data->map.width = 0;
 	data->map.x = 0;
 	data->map.y = 0;
+	data->textures_flags.fl_no = 0;
+	data->textures_flags.fl_so = 0;
+	data->textures_flags.fl_we = 0;
+	data->textures_flags.fl_ea = 0;
+	data->textures_flags.fl_f = 0;
+	data->textures_flags.fl_c = 0;
+	
 }
 
 void	ft_init_mlx(t_main *data)
