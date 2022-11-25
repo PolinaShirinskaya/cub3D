@@ -6,7 +6,7 @@
 /*   By: adian <adian@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 12:58:33 by adian             #+#    #+#             */
-/*   Updated: 2022/11/12 17:46:56 by adian            ###   ########.fr       */
+/*   Updated: 2022/11/24 12:55:57 by adian            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,6 @@ void	ft_cub3d(t_main *data)
 	ft_parse_textures(data);
 	printf("------PARSE MAP-------\n");
 	ft_parse_map(data);
-	printf("------ADDITION MAP---\n");	
+	printf("------ADDITION MAP---\n");
 	ft_addition_map(data);
 }

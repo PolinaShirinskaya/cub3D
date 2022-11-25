@@ -6,7 +6,7 @@
 /*   By: adian <adian@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 12:42:21 by adian             #+#    #+#             */
-/*   Updated: 2022/11/12 17:44:38 by adian            ###   ########.fr       */
+/*   Updated: 2022/11/24 16:52:35 by adian            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	ft_make_map(t_main *data)
 {
-	t_token *tmp;
+	t_token	*tmp;
 	int		i;
 
 	tmp = ft_find_token(&data->tokens, TOKEN_MAP);
@@ -40,7 +40,7 @@ static void	ft_make_map(t_main *data)
 static void	ft_make_full_map(t_main *data)
 {
 	int	i;
-	
+
 	i = -1;
 	printf("Map height: %d\n", data->map.height);
 	while (++i < data->map.height)
@@ -58,7 +58,7 @@ static void	ft_make_full_map(t_main *data)
 	}
 }
 
-static void ft_define_hero_position(t_main *data, char hero, \
+static void	ft_define_hero_position(t_main *data, char hero, \
 			int row, int column)
 {
 	printf("------CHECK BORDERS---\n");	
@@ -103,25 +103,27 @@ static void	ft_check_map_characters(t_main *data)
 		while (data->map.map[i][++j])
 		{
 			if (!ft_strchr(ALL_CHARACTERS, data->map.map[i][j]))
+			{
+				printf("DADAD----- +%c+\n", data->map.map[i][j]);
 				ft_end_program(data, ERROR_INVALIDE_CHARS_MAP, 1);
+			}
 			if (ft_strchr(HERO_CHARACTERS, data->map.map[i][j]))
 			{
 				if (flag)
 					ft_end_program(data, ERROR_MORE_HEROES, 1);
-				flag =1;
+				flag = 1;
 				ft_define_hero_position(data, data->map.map[i][j], i, j);
 			}
 		}			
 	}
 	if (!flag)
 		ft_end_program(data, ERROR_NO_HERO, 1);
-	printf("okay\n");
 }
 
 void	ft_parse_map(t_main *data)
 {
-    t_token	*tmp;
-	
+	t_token	*tmp;
+
 	tmp = ft_find_token(&data->tokens, TOKEN_MAP);
 	data->map.height = 0;
 	while (tmp && tmp->type == TOKEN_MAP)
@@ -138,8 +140,8 @@ void	ft_parse_map(t_main *data)
 	ft_make_map(data);
 	printf("------FULL MAP---\n");
 	ft_make_full_map(data);
-	printf("------CHECK CHARECTERS---\n");	
+	printf("------CHECK CHARECTERS1---\n");
 	ft_check_map_characters(data);
-	printf("------CHECK BORDERS---\n");	
+	printf("------CHECK BORDERS---\n");
 	ft_check_map_border(data);
 }

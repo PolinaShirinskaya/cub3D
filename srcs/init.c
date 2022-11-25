@@ -6,7 +6,7 @@
 /*   By: adian <adian@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 16:53:01 by adian             #+#    #+#             */
-/*   Updated: 2022/11/13 12:07:13 by adian            ###   ########.fr       */
+/*   Updated: 2022/11/24 12:56:37 by adian            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void	ft_define_default_data(t_main *data)
 	data->textures_flags.fl_ea = 0;
 	data->textures_flags.fl_f = 0;
 	data->textures_flags.fl_c = 0;
-	
 }
 
 void	ft_init_mlx(t_main *data)
@@ -53,7 +52,7 @@ void	ft_init_mlx(t_main *data)
 void	ft_init_data(t_main *data, char *filename)
 {
 	int	i;
-	
+
 	data->file.filename = filename;
 	data->file.fd = 0;
 	data->textures_lines = 0;

@@ -6,7 +6,7 @@
 /*   By: adian <adian@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 10:22:21 by adian             #+#    #+#             */
-/*   Updated: 2022/11/12 17:58:53 by adian            ###   ########.fr       */
+/*   Updated: 2022/11/24 16:49:55 by adian            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ static void	ft_invalid_rgb(t_main *data, \
 	ft_end_program(data, mess, 1);
 }
 
-static char **ft_prepare_rgb(t_main *data, char *line)
+static char	**ft_prepare_rgb(t_main *data, char *line)
 {
 	char	**tmp1;
 	char	**tmp2;
 	int		i;
-	
+
 	tmp1 = ft_split(line, ',');
 	tmp2 = malloc_two_array_char(tmp1);
 	if (size_two_array_char(tmp1) != 3 || !tmp2)
@@ -70,7 +70,7 @@ void	ft_parse_textures_floor_ceil(t_main *data, char *line)
 	char	*tmp;
 
 	tmp = line + 1;
-	while(tmp && *tmp && ft_strchr(SEP, *tmp))
+	while (tmp && *tmp && ft_strchr(SEP, *tmp))
 		tmp++;
 	ft_define_rgb(data, tmp);
 	if (data->colors.r > 255 || data->colors.g > 255 || \

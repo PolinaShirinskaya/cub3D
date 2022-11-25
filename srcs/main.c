@@ -6,7 +6,7 @@
 /*   By: adian <adian@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 16:55:37 by adian             #+#    #+#             */
-/*   Updated: 2022/11/04 13:12:14 by adian            ###   ########.fr       */
+/*   Updated: 2022/11/24 12:10:56 by adian            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,13 @@ static	void	ft_check_arguments(t_main data, int argc)
 	char	*tmp;
 
 	printf("------CHECK ARGS---\n");
-	printf("filename: %s\n",data.file.filename);
+	printf("filename: %s\n", data.file.filename);
 	if (argc != 2)
 		ft_end_program(NULL, ERROR_ARGS, 1);
 	tmp = ft_strrchr(data.file.filename, '.');
 	if (!tmp || ft_strcmp(tmp, ".cub"))
 		ft_end_program(NULL, ERROR_FILE_EXTENSION, 1);
-	printf("fd: %d\n",data.file.fd);
-	//ft_parser(&data);	
+	printf("fd: %d\n", data.file.fd);
 }
 
 int	main(int argc, char **argv)

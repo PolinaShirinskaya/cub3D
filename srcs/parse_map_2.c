@@ -6,7 +6,7 @@
 /*   By: adian <adian@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 13:26:48 by adian             #+#    #+#             */
-/*   Updated: 2022/11/12 17:41:01 by adian            ###   ########.fr       */
+/*   Updated: 2022/11/24 16:49:20 by adian            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ void	ft_check_map_border(t_main *data)
 				(j == (int)ft_strlen(data->map.map[i - 1])))
 					ft_end_program(data, ERROR_MAP_BORDER, 1);
 				if (ft_check_char(data, i, j))
-					ft_end_program(data, ERROR_MAP_BORDER, 1);			}
+					ft_end_program(data, ERROR_MAP_BORDER, 1);
+			}
 		}
 	}
 	printf("okay\n");

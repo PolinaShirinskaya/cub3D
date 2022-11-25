@@ -6,7 +6,7 @@
 /*   By: adian <adian@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 13:00:52 by adian             #+#    #+#             */
-/*   Updated: 2022/11/12 18:23:21 by adian            ###   ########.fr       */
+/*   Updated: 2022/11/25 11:46:21 by adian            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,23 +22,20 @@ static void	ft_check_gnl_res(t_main *data)
 
 static	void	ft_read_file(t_main *data)
 {
-	int	rv;
-
-	rv = -3;
-	data->file.res = ft_gnl_sh(&data->file.line, 1000, data->file.fd, &rv);
+	data->file.res = ft_gnl_sh(&data->file.line, 1000, data->file.fd);
 	ft_check_gnl_res(data);
 	if (data->file.line[ft_strlen(data->file.line) - 1] == '\n')
 		data->file.line[ft_strlen(data->file.line) - 1] = '\0';
 	while (data->file.res)
 	{
 		ft_add_token(&data->tokens, ft_new_token(data));
-		data->file.res = ft_gnl_sh(&data->file.line, 1000, data->file.fd, &rv);
+		data->file.res = ft_gnl_sh(&data->file.line, 1000, data->file.fd);
 		ft_check_gnl_res(data);
 		if (data->file.line[ft_strlen(data->file.line) - 1] == '\n')
 				data->file.line[ft_strlen(data->file.line) - 1] = '\0';
-		printf("line readfile: %s res:%d\n",data->file.line, data->file.res);
+		printf("line readfile: +%s+ res: %d\n", data->file.line, data->file.res);
 	}
-		ft_add_token(&data->tokens, ft_new_token(data));
+	ft_add_token(&data->tokens, ft_new_token(data));
 	if (!data->tokens)
 		ft_end_program(data, ERROR_EMPTY_FILE, 1);
 }
@@ -84,7 +81,7 @@ void	ft_parse_file_to_tokens(t_main *data)
 {
 	printf("------READ fILE---\n");
 	ft_read_file(data);
-	printf("------PREPARE TOKENS---\n");
+	printf("------PREPARE TOKENS1---\n");
 	ft_prepare_tokens(data);
 	if (ft_count_type_tokens(&data->tokens, TOKEN_TEXTURE) != FULL_TEXTURE)
 		ft_end_program(data, ERROR_NOT_FULL_TEXTURE, 1);

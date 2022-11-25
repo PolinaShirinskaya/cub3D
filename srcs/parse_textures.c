@@ -6,13 +6,13 @@
 /*   By: adian <adian@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 10:51:26 by adian             #+#    #+#             */
-/*   Updated: 2022/11/17 14:17:20 by adian            ###   ########.fr       */
+/*   Updated: 2022/11/24 12:55:34 by adian            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-static void ft_check_uniqueness(t_main *data, char *texture)
+static void	ft_check_uniqueness(t_main *data, char *texture)
 {
 	if (*texture == 'N' && !data->textures_flags.fl_no)
 		data->textures_flags.fl_no = 1;
@@ -29,10 +29,11 @@ static void ft_check_uniqueness(t_main *data, char *texture)
 	else
 		ft_end_program(data, ERROR_UNIQ_TEXTURES, 1);
 }
+
 void	ft_parse_textures(t_main *data)
 {
 	t_token	*tmp;
-	
+
 	tmp = data->tokens;
 	printf("textures_lines: %d\n", data->textures_lines);
 	while (tmp && data->textures_lines != FULL_TEXTURE)

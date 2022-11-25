@@ -6,7 +6,7 @@
 /*   By: adian <adian@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 21:05:14 by adian             #+#    #+#             */
-/*   Updated: 2022/11/08 12:40:32 by adian            ###   ########.fr       */
+/*   Updated: 2022/11/25 11:44:53 by adian            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ char	**malloc_two_array_char(char **array);
 void	free_two_array_char(char **array);
 int		size_two_array_char(char **array);
 
-int		ft_gnl_sh(char **line, int memory, int fd, int *rv);
+int		ft_gnl_sh(char **line, int memory, int fd);
 size_t	ft_putspl_fd(char **split, int fd);
 void	ft_splfree(char **split);
 
