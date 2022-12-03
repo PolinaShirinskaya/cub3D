@@ -6,7 +6,7 @@
 /*   By: adian <adian@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 16:50:42 by adian             #+#    #+#             */
-/*   Updated: 2022/11/24 16:56:21 by adian            ###   ########.fr       */
+/*   Updated: 2022/11/29 12:57:02 by adian            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # include "../libft/libft.h"
 # include "defines.h"
 # include "error_mess.h"
+# include "keycodes.h"
 # include <fcntl.h>
 # include <stdlib.h>
 # include <math.h>
@@ -130,6 +131,8 @@ typedef struct s_main
 
 /*start of cub3d process*/
 void	ft_cub3d(t_main *data);
+void	ft_rendering_img(t_main *data);
+
 
 /*initialization functions*/
 void	ft_init_data(t_main *data, char *filename);
@@ -156,5 +159,11 @@ void	ft_check_map_border(t_main *data);
 void	ft_addition_map(t_main *data);
 t_point	ft_set_point(double x, double y);
 void	ft_end_program(t_main *data, char *error_mess, int error_num);
+void	my_mlx_pixel_put(t_main *data, int x, int y, unsigned int color);
+
+/*keys functions*/
+int ft_press_key(int keycode, t_main *data);
+int ft_close_window(t_main *data);
+
 
 #endif

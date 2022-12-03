@@ -6,7 +6,7 @@
 /*   By: adian <adian@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 16:53:01 by adian             #+#    #+#             */
-/*   Updated: 2022/11/24 12:56:37 by adian            ###   ########.fr       */
+/*   Updated: 2022/11/29 13:04:31 by adian            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_define_default_data(t_main *data)
 {
+	data->ceil_color = DEF_CEIL_COLOR;
+	data->floor_color = DEF_FLOOR_COLOR;
 	data->map.height = 0;
 	data->map.width = 0;
 	data->map.x = 0;
@@ -24,6 +26,14 @@ void	ft_define_default_data(t_main *data)
 	data->textures_flags.fl_ea = 0;
 	data->textures_flags.fl_f = 0;
 	data->textures_flags.fl_c = 0;
+	data->floor_color = 0;
+	data->ceil_color = 0;
+	data->hero.position = ft_set_point(0, 0);
+	data->hero.direction = ft_set_point(0, 0);
+	data->plane = ft_set_point(0, 0);
+	//ft_set_default_ray(data);
+	//init chatacters for wall!!
+
 }
 
 void	ft_init_mlx(t_main *data)
@@ -44,9 +54,6 @@ void	ft_init_mlx(t_main *data)
 	&data->mlx.img.endian);
 	if (!data->mlx.img.addr)
 		ft_end_program(data, ERROR_MLX_GET_DATA_ADDR, 1);
-	mlx_put_image_to_window(data->mlx.mlx, data->mlx.mlx_win, \
-	data->mlx.img.img, 0, 0);
-	mlx_loop(data->mlx.mlx);
 }
 
 void	ft_init_data(t_main *data, char *filename)

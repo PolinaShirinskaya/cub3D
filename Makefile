@@ -19,14 +19,20 @@ HEADER_DIR		=	includes
 HEADER_MAIN		=	cub3d.h
 HEADER_DEFS		=	defines.h
 HEADER_ERROR	=	error_mess.h
+HEADER_KEYS		=	keycodes.h
+
 
 HEADER			=	$(addprefix $(HEADER_DIR)/,$(HEADER_MAIN))
 HEADER			+=	$(addprefix $(HEADER_DIR)/,$(HEADER_DEFS))
 HEADER			+=	$(addprefix $(HEADER_DIR)/,$(HEADER_ERROR))
+HEADER			+=	$(addprefix $(HEADER_DIR)/,$(HEADER_KEYS))
+
 
 SRCS_DIR		=	srcs
 SRCS_LIST		=	main.c \
 					cub3d.c \
+					keys.c \
+					rendering.c\
 					end_program.c \
 					init.c \
 					parse_file_to_tokens.c \

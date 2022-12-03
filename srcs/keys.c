@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   keys.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adian <adian@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/12 12:27:58 by adian             #+#    #+#             */
-/*   Updated: 2022/11/29 13:30:34 by adian            ###   ########.fr       */
+/*   Created: 2022/11/27 17:39:56 by adian             #+#    #+#             */
+/*   Updated: 2022/11/27 17:49:56 by adian            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-t_point	ft_set_point(double x, double y)
+int ft_close_window(t_main *data)
 {
-	t_point	point;
-
-	point.x = x;
-	point.y = y;
-	return (point);
+	ft_end_program(data, NULL, 0);
+	return (0);
 }
 
-void	my_mlx_pixel_put(t_main *data, int x, int y, unsigned int color)
+int ft_press_key(int keycode, t_main *data)
 {
-	char	*dst;
-	
-	if (x >= 0 && x < WINDOW_WIDHT && y >= 0 && y < WINDOW_HEIGHT)
-	{
-		dst = data->mlx.img.addr + (y * data->mlx.img.line_length + x * (data->mlx.img.bits_per_pixel / 8));
-		*(unsigned int*)dst = color;
-	}
+	if (keycode == KEY_ESC)
+		ft_end_program(data, NULL, 0);
+	return (0);
 }
-
-
