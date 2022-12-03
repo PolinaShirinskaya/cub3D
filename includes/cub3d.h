@@ -6,7 +6,7 @@
 /*   By: adian <adian@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 16:50:42 by adian             #+#    #+#             */
-/*   Updated: 2022/11/29 12:57:02 by adian            ###   ########.fr       */
+/*   Updated: 2022/12/03 18:14:54 by adian            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ typedef struct s_file
 	char	*filename;
 	char	*line;
 	int		fd;
-	int		res; //считанный файл через токены
+	int		res;
 }			t_file;
 
 typedef struct s_token
@@ -47,7 +47,7 @@ typedef struct s_token
 	struct s_token	*next;
 }					t_token;
 
-typedef struct	s_texture
+typedef struct s_texture
 {
 	void	*img;
 	int		*addr;
@@ -58,7 +58,7 @@ typedef struct	s_texture
 	int		height;
 }			t_texture;
 
-typedef struct	s_flags
+typedef struct s_flags
 {
 	int	fl_no;
 	int	fl_so;
@@ -97,6 +97,17 @@ typedef struct s_hero
 	t_point	direction;
 }			t_hero;
 
+typedef struct s_ray
+{
+	t_point	dir;
+	t_point	delta;
+	t_point	side;
+	int		num;
+	int		hit;
+	int		step_x;
+	int		step_y;
+}			t_ray;
+
 typedef struct s_img
 {
 	void	*img;
@@ -127,12 +138,13 @@ typedef struct s_main
 	unsigned int	ceil_color;
 	t_hero			hero;
 	t_point			plane;
+	t_ray			ray;
 }			t_main;
 
 /*start of cub3d process*/
 void	ft_cub3d(t_main *data);
 void	ft_rendering_img(t_main *data);
-
+void	ft_set_color_ceil_floor(t_main *data);
 
 /*initialization functions*/
 void	ft_init_data(t_main *data, char *filename);
@@ -162,8 +174,7 @@ void	ft_end_program(t_main *data, char *error_mess, int error_num);
 void	my_mlx_pixel_put(t_main *data, int x, int y, unsigned int color);
 
 /*keys functions*/
-int ft_press_key(int keycode, t_main *data);
-int ft_close_window(t_main *data);
-
+int		ft_press_key(int keycode, t_main *data);
+int		ft_close_window(t_main *data);
 
 #endif

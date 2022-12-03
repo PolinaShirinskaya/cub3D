@@ -6,7 +6,7 @@
 /*   By: adian <adian@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 16:51:04 by adian             #+#    #+#             */
-/*   Updated: 2022/11/13 12:21:34 by adian            ###   ########.fr       */
+/*   Updated: 2022/12/03 13:59:58 by adian            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,10 @@
 # define ERROR_NO_HERO "Error: no hero in map\n"
 # define ERROR_MAP_BORDER "Error: map border is not valid\n"
 # define ERROR_UNIQ_TEXTURES "Error: texture has a duplicate\n"
+# define ERROR_EXTENSION_TEXTURE "Error: extension of texture is wrong\n"
+# define ERROR_OPEN_TEXTURE "Error: open texture(wrong size or not create img)\n"
+# define ERROR_MLX_GET_DATA_ADDR "Error: mlx_get_data_address\n"
+
+
 
 #endif

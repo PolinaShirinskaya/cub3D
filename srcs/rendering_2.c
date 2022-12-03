@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rendering.c                                        :+:      :+:    :+:   */
+/*   rendering_2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adian <adian@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/27 17:58:11 by adian             #+#    #+#             */
-/*   Updated: 2022/11/29 13:33:28 by adian            ###   ########.fr       */
+/*   Created: 2022/12/03 16:56:49 by adian             #+#    #+#             */
+/*   Updated: 2022/12/03 16:57:07 by adian            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-static void ft_set_color_ceil_floor(t_main *data)
+void	ft_set_color_ceil_floor(t_main *data)
 {
 	int	i;
 	int	j;
@@ -30,11 +30,4 @@ static void ft_set_color_ceil_floor(t_main *data)
 		while (++j < WINDOW_WIDHT)
 			my_mlx_pixel_put(data, j, i, data->floor_color);
 	}
-}
-
-void	ft_rendering_img(t_main *data)
-{
-	ft_set_color_ceil_floor(data);
-	mlx_put_image_to_window(data->mlx.mlx, data->mlx.mlx_win, \
-	data->mlx.img.img, 0, 0);
 }

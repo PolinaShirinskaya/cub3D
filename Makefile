@@ -32,7 +32,8 @@ SRCS_DIR		=	srcs
 SRCS_LIST		=	main.c \
 					cub3d.c \
 					keys.c \
-					rendering.c\
+					rendering_1.c \
+					rendering_2.c \
 					end_program.c \
 					init.c \
 					parse_file_to_tokens.c \

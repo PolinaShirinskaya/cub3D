@@ -1,11 +1,11 @@
-#ifndef KEYCODES_H
+/*#ifndef KEYCODES_H
 # define KEYCODES_H
 
 # define KEY_ESC 65307
 
-#endif
+#endif*/
 
-/*#ifndef KEYCODE_H
+#ifndef KEYCODE_H
 # define KEYCODE_H
 
 # define KEY_ESC 53
@@ -20,4 +20,4 @@
 # define MOVE_BACKWARD 1
 # define MOVE_STEP 0.2
 
-#endif*/
+#endif

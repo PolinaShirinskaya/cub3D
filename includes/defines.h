@@ -6,7 +6,7 @@
 /*   By: adian <adian@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 16:50:56 by adian             #+#    #+#             */
-/*   Updated: 2022/11/24 16:37:40 by adian            ###   ########.fr       */
+/*   Updated: 2022/12/03 13:39:04 by adian            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,8 @@
 # define TEXTURE_WE 2
 # define TEXTURE_EA 3
 
+# define TEXTURE_SIZE 64
+# define LEN_EXTENSION 4
+# define EXTENSION ".xpm"
 
 #endif
