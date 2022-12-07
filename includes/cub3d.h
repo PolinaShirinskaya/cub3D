@@ -6,7 +6,7 @@
 /*   By: adian <adian@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 16:50:42 by adian             #+#    #+#             */
-/*   Updated: 2022/12/03 18:14:54 by adian            ###   ########.fr       */
+/*   Updated: 2022/12/07 17:13:32 by adian            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,10 +103,19 @@ typedef struct s_ray
 	t_point	delta;
 	t_point	side;
 	int		num;
-	int		hit;
+	int		hit_y;
 	int		step_x;
 	int		step_y;
 }			t_ray;
+
+typedef struct s_wall
+{
+	double		perp_distance;
+	int			height;
+	int			start;
+	int			x;
+	double		y;
+}				t_wall;
 
 typedef struct s_img
 {
@@ -139,12 +148,17 @@ typedef struct s_main
 	t_hero			hero;
 	t_point			plane;
 	t_ray			ray;
+	t_wall			wall;
 }			t_main;
 
 /*start of cub3d process*/
 void	ft_cub3d(t_main *data);
 void	ft_rendering_img(t_main *data);
 void	ft_set_color_ceil_floor(t_main *data);
+void	ft_define_wall(t_main *data);
+void	ft_define_wall_x(t_main *data);
+void	ft_render_wall(t_main *data);
+
 
 /*initialization functions*/
 void	ft_init_data(t_main *data, char *filename);
@@ -176,5 +190,7 @@ void	my_mlx_pixel_put(t_main *data, int x, int y, unsigned int color);
 /*keys functions*/
 int		ft_press_key(int keycode, t_main *data);
 int		ft_close_window(t_main *data);
+void    ft_rotate_right(t_main *data);
+void	ft_rotate_left(t_main *data);
 
 #endif

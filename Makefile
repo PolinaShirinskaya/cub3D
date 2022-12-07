@@ -31,7 +31,8 @@ HEADER			+=	$(addprefix $(HEADER_DIR)/,$(HEADER_KEYS))
 SRCS_DIR		=	srcs
 SRCS_LIST		=	main.c \
 					cub3d.c \
-					keys.c \
+					keys_1.c \
+					keys_2.c \
 					rendering_1.c \
 					rendering_2.c \
 					end_program.c \

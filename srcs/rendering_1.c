@@ -6,7 +6,7 @@
 /*   By: adian <adian@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 17:58:11 by adian             #+#    #+#             */
-/*   Updated: 2022/12/03 18:17:13 by adian            ###   ########.fr       */
+/*   Updated: 2022/12/07 17:41:40 by adian            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,13 @@ static void	ft_ray_hit(t_main *data)
 		{
 			data->ray.side.x += data->ray.delta.x;
 			data->map.x += data->ray.step_x;
-			data->ray.hit = 0;
+			data->ray.hit_y = 0;
 		}
 		else
 		{
 			data->ray.side.y += data->ray.delta.y;
 			data->map.y += data->ray.step_y;
-			data->ray.hit = 1;
+			data->ray.hit_y = 1;
 		}
 		if (data->map.map[data->map.y][data->map.x] == '1')
 			hit_flag = 1;
@@ -86,10 +86,15 @@ static void	ft_define_ray(t_main *data)
 void	ft_rendering_img(t_main *data)
 {
 	ft_set_color_ceil_floor(data);
+	data->ray.num = 0;
 	while (data->ray.num < WINDOW_WIDHT)
 	{
 		ft_define_ray(data);
 		ft_ray_hit(data);
+		ft_define_wall(data);
+		ft_define_wall_x(data);
+		ft_render_wall(data);
+		data->ray.num++;
 	}
 	mlx_put_image_to_window(data->mlx.mlx, data->mlx.mlx_win, \
 	data->mlx.img.img, 0, 0);

@@ -1,7 +1,7 @@
-NO
-SO
-WE
-EA
+NO ./textures/wall_5_1.xpm
+SO ./textures/wall_5_2.xpm
+WE ./textures/wall_5_3.xpm
+EA ./textures/wall_5_4.xpm
 
 C 200,230,255
 F 172,38,38
@@ -12,6 +12,6 @@ F 172,38,38
 11110000001
 10000S00001
 10000000001
-10000000001
+10000100001
 10000000001
 11111111111
