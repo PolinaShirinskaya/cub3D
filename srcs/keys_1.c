@@ -6,7 +6,7 @@
 /*   By: adian <adian@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 17:39:56 by adian             #+#    #+#             */
-/*   Updated: 2022/12/07 17:04:27 by adian            ###   ########.fr       */
+/*   Updated: 2022/12/08 13:12:48 by adian            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,53 +14,61 @@
 
 static void	ft_move_on(t_main *data)
 {
-	if (data->hero.position.x + data->hero.direction.x * MOVE_STEP > 1.3 && \
-	data->hero.position.x + data->hero.direction.x * MOVE_STEP < \
-	data->map.width - 1.3)
-		data->hero.position.x += data->hero.direction.x * MOVE_STEP;
-	if (data->hero.position.y + data->hero.direction.y * MOVE_STEP > 1.3 && \
-	data->hero.position.y + data->hero.direction.y * MOVE_STEP < \
-	data->map.height - 1.3)
+	char	tmp;
+
+	tmp = data->map.map[(int)(data->hero.position.y + data->hero.direction.y \
+		 * (MOVE))][(int)(data->hero.position.x)];
+	if (tmp != '1')
 		data->hero.position.y += data->hero.direction.y * MOVE_STEP;
+	tmp = data->map.map[(int)(data->hero.position.y)][(int)(data->hero.position.x + data->hero.direction.x \
+		 * (MOVE))];
+	if (tmp != '1')
+		data->hero.position.x += data->hero.direction.x * MOVE_STEP;
 	ft_rendering_img(data);	
 }
 
 static void	ft_move_back(t_main *data)
 {
-	if (data->hero.position.x - data->hero.direction.x * MOVE_STEP > 1.3 && \
-	data->hero.position.x - data->hero.direction.x * MOVE_STEP < \
-	data->map.width - 1.3)
-		data->hero.position.x -= data->hero.direction.x * MOVE_STEP;
-	if (data->hero.position.y - data->hero.direction.y * MOVE_STEP > 1.3 && \
-	data->hero.position.y - data->hero.direction.y * MOVE_STEP < \
-	data->map.height - 1.3)
+	char	tmp;
+
+	tmp = data->map.map[(int)(data->hero.position.y - data->hero.direction.y \
+		 * (MOVE))][(int)(data->hero.position.x)];
+	if (tmp != '1')
 		data->hero.position.y -= data->hero.direction.y * MOVE_STEP;
+	tmp = data->map.map[(int)(data->hero.position.y)][(int)(data->hero.position.x - data->hero.direction.x \
+		 * (MOVE))];
+	if (tmp != '1')
+		data->hero.position.x -= data->hero.direction.x * MOVE_STEP;
 	ft_rendering_img(data);
 }
 
 static void	ft_move_right(t_main *data)
 {
-	if (data->hero.position.x + data->plane.x * MOVE_STEP > 1.3 && \
-	data->hero.position.x + data->plane.x * MOVE_STEP < \
-	data->map.width - 1.3)
-		data->hero.position.x += data->plane.x * MOVE_STEP;
-	if (data->hero.position.y + data->plane.y * MOVE_STEP > 1.3 && \
-	data->hero.position.y + data->plane.y * MOVE_STEP < \
-	data->map.width - 1.3)
+	int	tmp;
+
+	tmp = data->map.map[(int)(data->hero.position.y + data->plane.y \
+		 * (MOVE))][(int)(data->hero.position.x)];
+	if (tmp != '1')
 		data->hero.position.y += data->plane.y * MOVE_STEP;
-	ft_rendering_img(data);
+	tmp = data->map.map[(int)(data->hero.position.y)][(int)(data->hero.position.x + data->plane.x \
+		 * (MOVE))];
+	if (tmp != '1')
+		data->hero.position.x += data->plane.x * MOVE_STEP;
+	ft_rendering_img(data);	
 }
 
 static void	ft_move_left(t_main *data)
 {
-	if (data->hero.position.x - data->plane.x * MOVE_STEP > 1.3 && \
-	data->hero.position.x - data->plane.x * MOVE_STEP < \
-	data->map.width - 1.3)
-		data->hero.position.x -= data->plane.x * MOVE_STEP;
-	if (data->hero.position.y - data->plane.y * MOVE_STEP > 1.3 && \
-	data->hero.position.y - data->plane.y * MOVE_STEP < \
-	data->map.width - 1.3)
+	int	tmp;
+
+	tmp = data->map.map[(int)(data->hero.position.y - data->plane.y \
+		 * (MOVE))][(int)(data->hero.position.x)];
+	if (tmp != '1')
 		data->hero.position.y -= data->plane.y * MOVE_STEP;
+	tmp = data->map.map[(int)(data->hero.position.y)][(int)(data->hero.position.x - data->plane.x \
+		 * (MOVE))];
+	if (tmp != '1')
+		data->hero.position.x -= data->plane.x * MOVE_STEP;
 	ft_rendering_img(data);
 }
 

@@ -11,7 +11,8 @@
 # define MOVE_RIGHT 100		// key 'D'
 # define MOVE_ON 119		// key 'W'
 # define MOVE_BACK 115	// key 'S'
-# define MOVE_STEP 0.3
+# define MOVE 0.3
+# define MOVE_STEP 0.1
 
 #endif
 
