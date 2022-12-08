@@ -6,7 +6,7 @@
 /*   By: adian <adian@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 16:27:26 by adian             #+#    #+#             */
-/*   Updated: 2022/12/07 17:12:19 by adian            ###   ########.fr       */
+/*   Updated: 2022/12/08 14:10:52 by adian            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ static void	free_mlx_elements(t_main *data)
 		mlx_destroy_image(data->mlx.mlx, data->mlx.img.img);
 	if (data->mlx.mlx_win)
 		mlx_destroy_window(data->mlx.mlx, data->mlx.mlx_win);
+	//delete for mac
 	if (data->mlx.mlx)
 	{
 		mlx_destroy_display(data->mlx.mlx);
